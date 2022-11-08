@@ -23,5 +23,5 @@ locationProvider() async {
     }
   }
   return await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.low);
+      desiredAccuracy: LocationAccuracy.high);
 }
