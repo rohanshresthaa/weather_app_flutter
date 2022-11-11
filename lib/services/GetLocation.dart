@@ -19,7 +19,7 @@ locationProvider() async {
   if (permission == LocationPermission.denied) {
     permission = await Geolocator.requestPermission();
     if (permission == LocationPermission.denied) {
-      return Future.error("error");
+      return locationProvider();
     }
   }
   return await Geolocator.getCurrentPosition(

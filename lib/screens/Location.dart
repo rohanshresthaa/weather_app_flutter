@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/screens/City.dart';
+import 'package:weather_app/screens/Loading.dart';
 import 'package:weather_app/screens/widgets/Details.dart';
+import 'package:weather_app/services/Networking.dart';
+import 'package:weather_app/services/Weather.dart';
 import 'package:weather_app/utilities/Constants.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -48,7 +51,18 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(FontAwesomeIcons.locationArrow),
+        leading: GestureDetector(
+          child: Icon(FontAwesomeIcons.locationArrow),
+          onTap: (() {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoadingScreen(),
+              ),
+              (Route<dynamic> route) => false,
+            );
+          }),
+        ),
         actions: [
           IconButton(
             icon: const Icon(FontAwesomeIcons.magnifyingGlass),
@@ -61,7 +75,10 @@ class _LocationScreenState extends State<LocationScreen> {
                   },
                 ),
               );
-              print(typedName);
+              if (typedName != null) {
+                var weatherData = await Weather().getCityWeather(typedName);
+                updateUi(weatherData);
+              }
             },
           ),
         ],
