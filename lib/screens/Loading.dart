@@ -34,7 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=1937f6e55e21a1635b9947eb7793c99d&units=metric');
     var weatherData = await api.getData();
     // ignore: use_build_context_synchronously
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: ((context) {

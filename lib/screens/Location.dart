@@ -36,16 +36,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
   void updateUi(dynamic weatherData) {
     setState(() {
-      if (weatherData != null) {
-        temperature = weatherData['main']['temp'].toInt();
-        condition = weatherData['weather'][0]['id'];
-        desc = weatherData['weather'][0]['description'];
-        city = weatherData['name'];
-        icon = weatherData['weather'][0]['icon'];
-        press = weatherData['main']['pressure'];
-        humid = weatherData['main']['humidity'];
-        speed = weatherData['wind']['speed'];
-      } else {
+      if (weatherData == null) {
         temperature = 0;
         condition = 0;
         desc = 'error';
@@ -54,6 +45,15 @@ class _LocationScreenState extends State<LocationScreen> {
         press = 0;
         humid = 0;
         speed = 0.0;
+      } else {
+        temperature = weatherData['main']['temp'].toInt();
+        condition = weatherData['weather'][0]['id'];
+        desc = weatherData['weather'][0]['description'];
+        city = weatherData['name'];
+        icon = weatherData['weather'][0]['icon'];
+        press = weatherData['main']['pressure'];
+        humid = weatherData['main']['humidity'];
+        speed = weatherData['wind']['speed'];
       }
     });
   }
