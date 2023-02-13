@@ -1,3 +1,2 @@
-# WEATHER APP IN FLUTTER 
+# WEATHER APPLICATION
 ### Using Flutter 
-
