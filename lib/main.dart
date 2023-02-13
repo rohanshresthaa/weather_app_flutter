@@ -6,7 +6,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFF24142c),
+        scaffoldBackgroundColor: const Color(0xFF24142c),
         appBarTheme: const AppBarTheme(
           elevation: 0.0,
           backgroundColor: Color(0xFF24142c),

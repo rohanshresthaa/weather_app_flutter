@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:weather_app/screens/City.dart';
 import 'package:weather_app/screens/Loading.dart';
 import 'package:weather_app/screens/widgets/Details.dart';
-import 'package:weather_app/services/Networking.dart';
 import 'package:weather_app/services/Weather.dart';
 import 'package:weather_app/utilities/Constants.dart';
 
